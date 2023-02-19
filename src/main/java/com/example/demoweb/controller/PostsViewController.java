@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class PostsViewController {
 
     @Autowired
-    PostService postsService;
+    private PostService postsService;
 
     @RequestMapping(path = "/", method = RequestMethod.GET)
     public String list(Model model) {
