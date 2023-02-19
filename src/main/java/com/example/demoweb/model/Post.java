@@ -1,18 +1,30 @@
 package com.example.demoweb.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import java.io.Serializable;
 import java.util.Date;
 
-public class Post {
+@Entity
+public class Post implements Serializable {
 
+    @Id
+    @GeneratedValue
+    private Long id;
     private String text;
     private Integer likes;
     private Date creationDate;
 
-    public Post(String text, Date creationDate){
+    public Post(){}
+
+    public Post(Long id, String text, Date creationDate){
+        this.id = id;
         this.text = text;
         this.creationDate = creationDate;
         likes = 0;
     }
+    public Long getId(){return id;}
     public String getText(){
         return text;
     }
@@ -20,4 +32,11 @@ public class Post {
         return likes;
     }
     public Date getCreationDate(){return creationDate;}
+    public void setLikes(int likes){
+        this.likes = likes;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
